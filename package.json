@@ -1,0 +1,26 @@
+{
+  "name": "bookbazar-backened",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemont index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satyapsr13/bookbazar-backened.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satyapsr13/bookbazar-backened/issues"
+  },
+  "homepage": "https://github.com/satyapsr13/bookbazar-backened#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  }
+}
