@@ -1,12 +1,15 @@
-const app = require("express");
+const express = require("express");
+const app = express();
 const passport = require('passport');
 var userProfile;
 
 app.use(passport.initialize());
 app.use(passport.session());
- 
 
-app.get('/success', (req, res) => res.send(userProfile));
+
+app.get('/success', (req, res) => res.status(200).json({
+    user: userProfile
+}));
 app.get('/error', (req, res) => res.send("error logging in"));
 
 passport.serializeUser(function (user, cb) {
@@ -16,4 +19,7 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
     cb(null, obj);
 });
-module.exports = app;
+module.exports = {
+    app,
+    passport
+};
