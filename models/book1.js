@@ -7,7 +7,7 @@ const bookSchema = new Schema({
         type: String,
         // required: true,
         unique: true,
-        required:true
+        required: true
         // default: "",
     },
     title: {
@@ -43,5 +43,4 @@ const bookSchema = new Schema({
     },
 
 });
-module.exports = mongoose.model("Book", bookSchema);
- 
+module.exports = mongoose.model("Book1", bookSchema1);

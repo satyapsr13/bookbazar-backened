@@ -18,7 +18,7 @@ const upload = multer({
 });
 
 router.route("/add").post((req, res) => {
-    console.log(req.body.title);
+    // console.log(req.body.title);
 
     
     const book = Book({
