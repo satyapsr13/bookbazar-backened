@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemont index.js"
+    "test": "nodemont index.js",
+    "start": "nodemont index.js"
   },
   "repository": {
     "type": "git",

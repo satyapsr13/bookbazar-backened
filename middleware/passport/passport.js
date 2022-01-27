@@ -10,8 +10,9 @@ app.use(passport.session());
 app.get('/success', (req, res) => res.status(200).json({
     user: userProfile
 }));
-app.get('/error', (req, res) => res.send("error logging in"));
-
+app.get('/error', (req, res) => res.status(400).json({
+    e: "user not found"
+}));
 passport.serializeUser(function (user, cb) {
     cb(null, user);
 });

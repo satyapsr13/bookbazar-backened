@@ -18,23 +18,25 @@ const upload = multer({
 });
 
 router.route("/add").post((req, res) => {
-    // console.log(req.body.title);
+    console.log(req.body.title);
 
-    
+
+
     const book = Book({
         id: req.body.id,
         title: req.body.title,
-        // body: req.body.body,
-        // title: req.body.title,
         subtitle: req.body.subtitle,
         price: req.body.price,
         description: req.body.description,
         address: req.body.address,
         author: req.body.author,
-        bookImageUrl: req.body.bookImageUrl,
+        // bookImageUrl: req.body.bookImageUrl,
+        bookImageUrl: "https://picsum.photos/200/300",     
     });
     console.log('from phone');
     console.log(book);
+   
+
 
     book
         .save()
@@ -48,5 +50,15 @@ router.route("/add").post((req, res) => {
                 err: err
             });
         });
+});
+router.get("/getbooks", (req, res) => {
+    Book.find({}, (err, result) => {
+        if (err) return res.status(400).json({
+            err: err
+        });
+        return res.status(200).json({
+            data: result
+        });
+    });
 });
 module.exports = router;
