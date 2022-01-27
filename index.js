@@ -1,19 +1,21 @@
 require("dotenv").config();
-const express = require('express')
-const app = express()
+const express = require("express");
+const app = express();
 const session = require("express-session");
-const port = process.env.PORT || 3000
-const database = require("./config/database")
+const port = process.env.PORT || 3000;
+const database = require("./config/database");
 database();
-app.use(session({
+app.use(
+  session({
     resave: false,
     saveUninitialized: true,
-    secret: 'SECRET'
-}));
+    secret: "SECRET",
+  })
+);
 
 app.use("/auth/google", require("./middleware/passport/google"));
 app.use(express.json());
 app.use("/user", require("./routes/user.js"));
 app.use("/book", require("./routes/book.js"));
-app.get('/a', (req, res) => res.send('Hello World!'))
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.get("/a", (req, res) => res.send("Hello World!"));
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
